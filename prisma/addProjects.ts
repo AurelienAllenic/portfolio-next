@@ -6,7 +6,7 @@ async function main() {
   const projects = [
     {
       image: 'https://aurelienallenic.fr/assets/booki-CA3PqGpU.webp',
-      title: 'Booki, projet de site de réservation hôtelier réalisé en HTML/CSS',
+      title: 'Booki',
       description: 'Un projet de site web de réservation d’hôtels réalisé avec HTML et CSS.',
       category: 'Web',
       objectifs: 'Créer un site de réservation simple pour les hôtels.',
@@ -15,7 +15,7 @@ async function main() {
     },
     {
       image: 'https://aurelienallenic.fr/assets/ohmyfood-Dqbwe2yt.jpg',
-      title: 'Ohmyfood, site gastronomique réalisé en HTML, CSS et SCSS',
+      title: 'Ohmyfood',
       description: 'Un site web gastronomique utilisant HTML, CSS et SCSS pour une meilleure présentation.',
       category: 'Web',
       objectifs: 'Mettre en place un site de recettes gastronomiques.',
@@ -24,7 +24,7 @@ async function main() {
     },
     {
       image: 'https://aurelienallenic.fr/assets/lapanthere-AMUkuVkG.jpg',
-      title: "Lapanthere, site de web design basée à Lyon, projet d'amélioration SEO d'un site existant",
+      title: "Lapanthere",
       description: 'Amélioration du SEO d’un site web de design basé à Lyon.',
       category: 'SEO',
       objectifs: 'Améliorer la visibilité d’un site web dans les résultats des moteurs de recherche.',
@@ -33,7 +33,7 @@ async function main() {
     },
     {
       image: 'https://aurelienallenic.fr/assets/kanap-CEFHtTxJ.webp',
-      title: 'Kanap, site e-commerce réalisé en JavaScript, HTML, CSS',
+      title: 'Kanap',
       description: 'Développement d’un site e-commerce avec JavaScript, HTML et CSS.',
       category: 'E-commerce',
       objectifs: 'Créer un site de vente en ligne de canapés.',
@@ -42,7 +42,7 @@ async function main() {
     },
     {
       image: 'http://aurelienallenic.fr/assets/piiquante-CxSmnMkl.webp',
-      title: 'Hot-takes, API de like et partage de sauces pimentées réalisée en NodeJs et en JavaScript',
+      title: 'Hot-takes',
       description: 'Création d’une API permettant de liker et partager des sauces pimentées.',
       category: 'API',
       objectifs: 'Construire une API RESTful en utilisant NodeJs.',
@@ -51,7 +51,7 @@ async function main() {
     },
     {
       image: 'http://aurelienallenic.fr/assets/piiquante-CxSmnMkl.webp',
-      title: "Groupomania, réseau social d'entreprise réalisé avec ReactJs et NodeJs",
+      title: "Groupomania",
       description: 'Réseau social d’entreprise permettant aux employés de communiquer.',
       category: 'Réseau social',
       objectifs: 'Créer une plateforme de communication interne pour les entreprises.',
