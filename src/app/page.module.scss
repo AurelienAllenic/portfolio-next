@@ -1,0 +1,294 @@
+.landingPage {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--black);
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    z-index: 10;
+    color: #3BC2B9;
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: #3bc2b96c 1px 0 10px;
+    }
+
+    .contactButton {
+      padding: 0.5rem 2rem;
+      background-color: #3BC2B9;
+      color: var(--black);
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #2a968f;
+      }
+    }
+  }
+
+  .mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+
+    .slogan {
+      color: var(--blue);
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-shadow: #3bc2b96c 1px 0 10px;
+      margin-bottom: 1rem;
+    }
+
+    .title {
+      font-size: 5rem;
+      width: 800px;
+      line-height: 6rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .projectsButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      background-color: #3BC2B9;
+      color: var(--black);
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #2a968f;
+      }
+
+      svg {
+        stroke-width: 2;
+      }
+    }
+  }
+}
+
+.carousel {
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--soft-black);
+
+  .slider {
+    width: 200%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .carouselTrack {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      animation: carousel 15s linear infinite;
+
+      img {
+        height: 31px;
+      }
+    }
+  }
+
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.collabore {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black);
+  color: var(--white);
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    width: 700px;
+    text-align: center;
+    background: linear-gradient(75deg, rgb(214, 214, 214), rgba(214, 214, 214, 0.406));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+.container__card {
+  width: 100%;
+  display: flex;
+  justify-content: center; // Alignement à gauche
+  align-items: center; // Alignement en bas
+  gap: 20px; // Espace entre les cartes
+  padding: 40px 20px;
+  background-color: var(--black);
+
+
+
+ .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1250px;
+
+  .card {
+    width: 300px; 
+    height: 400px;
+    background-color: var(--soft-black);
+    border-radius: 5px;
+    padding: 2rem;
+    text-align: left; // Texte aligné à gauche
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0.5rem;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .cardIcon {
+      svg {
+        color: var(--gray); 
+
+      }
+    }
+
+    .cardTitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gray);
+    }
+
+    .cardDescription {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+  }
+ }
+}
+
+
+.realisation {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black);
+  
+}
+
+.realisationCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--soft-black);
+  padding: 1.5rem;
+  border-radius: 4px;
+  width: 1250px;
+  height: 400px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  .top__card{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .img__realisation{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 800px;
+    object-fit: cover;
+  }
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--white);
+}
+
+.realisationTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.realisationSubtitle {
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.realisationButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  color: var(--soft-black);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.realisationButton:hover {
+  background-color: #aaaaaa;
+}
