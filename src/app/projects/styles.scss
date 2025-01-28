@@ -2,36 +2,31 @@
     background-color: black;
     padding: 50px;
     min-height: 100vh;
-  
     h1 {
-      font-size: 4rem;
-      background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
-      -webkit-background-clip: text;
-      color: transparent;
+        font-size: 4rem;
+        background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+        -webkit-background-clip: text;
+        color: transparent;
     }
-  
     .container-all-projects {
-      display: flex;
-      flex-wrap: wrap;
-      flex: 1 1 1 30%;
-      gap: 10px;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 1 30%;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
         padding: 50px 0;
-      a {
-        position: relative;
-        height: 325px;
-        width: 594px;
-        display: block;
-        border-radius: 5px;
-        overflow: hidden;
-        object-fit: cover;
-        background-size: cover;
-        transition: all 0.3s ease-in-out;
-  
-  
-  
+        a {
+            position: relative;
+            height: 325px;
+            width: 594px;
+            display: block;
+            border-radius: 5px;
+            overflow: hidden;
+            object-fit: cover;
+            background-size: cover;
+            transition: all 0.3s ease-in-out;
         .containers-infos-project {
             position: relative;
             z-index: 1;
@@ -44,36 +39,35 @@
             display: flex;
             align-items: center;
             flex-direction: column;
-        gap: 2rem;
-          &.active {
-            opacity: 1; /* Le texte devient visible */
-            background: rgba(0, 0, 0, 0.5); /* Fond plus sombre au survol */
-          }
-          .project-title{
-            font-size: 22px;
-            font-weight: bold;
-            text-align: center;
-            margin-top:38px;
-          }
-          .project-description{
-            font-size: 18px;
-            line-height: 24px;
-            font-weight: 300;
-            position: absolute;
-            bottom: 87px;
-            width: 85%;
-            left: 40px;
-          }
-          .project-title,
-          .project-description {
-            color: white;
-          }
+            gap: 2rem;
+            &.active {
+                opacity: 1; 
+                background: rgba(0, 0, 0, 0.5);
+            }
+            .project-title{
+                font-size: 22px;
+                font-weight: bold;
+                text-align: center;
+                margin-top:38px;
+            }
+            .project-description{
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 300;
+                position: absolute;
+                bottom: 87px;
+                width: 85%;
+                left: 40px;
+            }
+            .project-title,
+            .project-description {
+                color: white;
+            }
         }
-  
         &:hover {
-          transform: scale(1.03);
+            transform: scale(1.03);
         }
-      }
+    }
     }
   }
   .filters{
