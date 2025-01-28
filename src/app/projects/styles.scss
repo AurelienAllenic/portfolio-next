@@ -1,0 +1,22 @@
+.container-page-all-projects{
+    h1{
+
+    }
+    .container-all-projects{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        a{
+            min-height: 25vh;
+            .project-title{
+
+            }
+            .project-description{
+                
+            }
+        }
+    }
+}
