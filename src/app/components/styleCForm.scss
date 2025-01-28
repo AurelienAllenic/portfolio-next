@@ -29,7 +29,7 @@ form {
     }
 
     input[type="text"],
-    input[type="mail"],
+    input[type="email"],
     textarea {
       width: 100%;
       padding: 10px;
@@ -58,9 +58,9 @@ form {
   button {
     width: 100%;
     padding: 10px;
-    background-color: #388E3C;
+    background-color: #3BC2B9;
     /* Darker green background for the button */
-    color: white;
+    color: black;
     /* White text on button */
     border: none;
     border-radius: 5px;
