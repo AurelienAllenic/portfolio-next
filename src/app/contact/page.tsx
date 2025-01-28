@@ -16,8 +16,12 @@ const ContactPage: React.FC = () => {
       await handleFormSubmission(formData); // assuming this returns a promise
       setIsSubmitted(true);
       setError(null); // clear any previous error
-        } catch (err: any) {
-      setError(err.message || 'There was an error with your submission. Please try again.');
+        } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || 'There was an error with your submission. Please try again.');
+      } else {
+        setError('There was an error with your submission. Please try again.');
+      }
       setIsSubmitted(false);
     }
   };

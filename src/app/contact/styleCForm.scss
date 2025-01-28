@@ -1,15 +1,18 @@
 form {
-  background-color: #f1f1f1;
+  background-color: #333;
+  /* Darker background for the form */
   padding: 20px;
   border-radius: 5px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Darker shadow effect */
 
   h1 {
     text-align: center;
-    color: #4CAF50;
+    color: #81C784;
+    /* Softer green for the header */
     font-size: 2em;
     margin-bottom: 20px;
   }
@@ -21,7 +24,8 @@ form {
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
-      color: #333;
+      color: #fff;
+      /* White color for labels */
     }
 
     input[type="text"],
@@ -29,14 +33,18 @@ form {
     textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #555;
+      /* Darker border color */
       border-radius: 5px;
       font-size: 1em;
-      background-color: #fff;
-      color: black;
+      background-color: #444;
+      /* Dark background for inputs */
+      color: white;
+      /* White text in inputs */
 
       &:focus {
-        border-color: #4CAF50;
+        border-color: #81C784;
+        /* Green border on focus */
         outline: none;
       }
     }
@@ -50,8 +58,10 @@ form {
   button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
-    color: black;
+    background-color: #388E3C;
+    /* Darker green background for the button */
+    color: white;
+    /* White text on button */
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
@@ -59,7 +69,8 @@ form {
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #45a049;
+      background-color: #2C6F2B;
+      /* Darker green when hovered */
     }
   }
 
@@ -69,14 +80,16 @@ form {
 }
 
 .success-message {
-  color: green;
+  color: #66BB6A;
+  /* Lighter green color for success */
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
 }
 
 .error-message {
-  color: red;
+  color: #E53935;
+  /* Red color for error */
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
