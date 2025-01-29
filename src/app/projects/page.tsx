@@ -70,8 +70,8 @@ const Projects: FC = () => {
     setFilteredProjects(filtered);
   }, [selectedTechnology, selectedCategory, projects]);
 
-  if (loading) return <p>Chargement...</p>;
-  if (error) return <p>{error}</p>;
+  // if (loading) return <p>Chargement...</p>;
+  // if (error) return <p>{error}</p>;
 
   const allCategories = Array.from(
     new Set(

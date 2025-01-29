@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link rel="icon" href="/favicon-16x16.png" sizes="16x16" />
