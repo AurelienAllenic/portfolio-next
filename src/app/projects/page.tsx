@@ -3,22 +3,19 @@
 import { FC, useEffect, useState } from "react";
 import { fetchProjects } from "../api/action";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowUpRight } from "lucide-react";
 import { Project } from "../types";
 import Header from "../components/Header/Header";
-import "./styles.scss";
-import { ArrowUpRight } from "lucide-react";
 import Footer from "../components/footer";
+import "./styles.scss";
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
-
   const [selectedTechnology, setSelectedTechnology] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [activeProject, setActiveProject] = useState<number | null>(null);
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -33,16 +30,15 @@ const Projects: FC = () => {
           image: project.image,
           title: project.title || `Projet ${project.id}`,
           description: project.description || "Pas de description disponible.",
-          category: project.category,
+          category: typeof project.category === "string" ? project.category : "Autre",
           objectifs: project.objectifs || "Aucun objectif spécifié.",
           technologies: Array.isArray(project.technologies)
-            ? project.technologies.filter((tech) => typeof tech === "string")
+            ? project.technologies.filter((tech): tech is string => typeof tech === "string")
             : [],
           result: project.result,
         }));
 
         setProjects(formattedData);
-        console.log(data);
         setFilteredProjects(formattedData);
       } catch (err) {
         console.error("Error fetching projects:", err);
@@ -60,18 +56,17 @@ const Projects: FC = () => {
 
     if (selectedTechnology) {
       filtered = filtered.filter((project) =>
-        project.technologies.includes(selectedTechnology)
+        Array.isArray(project.technologies) && project.technologies.includes(selectedTechnology)
       );
     }
+    
 
     if (selectedCategory) {
       filtered = filtered.filter(
-        (project) =>
-          project.category.toLowerCase() === selectedCategory.toLowerCase()
+        (project) => project.category.toLowerCase() === selectedCategory.toLowerCase()
       );
     }
 
-    console.log("Filtered Projects:", filtered);
     setFilteredProjects(filtered);
   }, [selectedTechnology, selectedCategory, projects]);
 
@@ -79,10 +74,18 @@ const Projects: FC = () => {
   if (error) return <p>{error}</p>;
 
   const allCategories = Array.from(
-    new Set(projects.map((project) => project.category))
+    new Set(
+      projects.map((project) => (typeof project.category === "string" ? project.category : "Autre"))
+    )
   );
   const allTechnologies = Array.from(
-    new Set(projects.flatMap((project) => project.technologies))
+    new Set(
+      projects.flatMap((project) =>
+        Array.isArray(project.technologies)
+          ? project.technologies.filter((tech): tech is string => typeof tech === "string")
+          : []
+      )
+    )
   );
 
   return (
@@ -95,7 +98,7 @@ const Projects: FC = () => {
           <div className="custom-select">
             <select
               onChange={(e) => setSelectedTechnology(e.target.value)}
-              value={selectedTechnology}
+              value={selectedTechnology || ""}
             >
               <option value="">Technologie</option>
               {allTechnologies.map((tech, index) => (
@@ -110,7 +113,7 @@ const Projects: FC = () => {
           <div className="custom-select">
             <select
               onChange={(e) => setSelectedCategory(e.target.value)}
-              value={selectedCategory}
+              value={selectedCategory || ""}
             >
               <option value="">Catégorie</option>
               {allCategories.map((category, index) => (
@@ -127,7 +130,7 @@ const Projects: FC = () => {
           {filteredProjects.map((project) => (
             <Link
               key={project.id}
-              href={`project/${project.id}`} // Redirection vers l'URL du projet
+              href={`project/${project.id}`}
               className="card"
               style={{ backgroundImage: `url(${project.image})` }}
               target="_blank"
