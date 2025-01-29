@@ -1,10 +1,14 @@
-'use client';
+"use client";
 
-import { FC, useEffect, useState } from 'react';
-import { getOneProject } from '../../api/action';
-import { Project } from '../../types';
-import { use } from 'react';
-import Footer from '@/app/components/footer';
+import { FC, useEffect, useState } from "react";
+import { getOneProject } from "../../api/action";
+import { Project } from "../../types";
+import { use } from "react";
+import Footer from "@/app/components/footer";
+import "./styles.scss";
+import Header from "@/app/components/Header/Header";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 interface ProjectPageProps {
   params: { id: string };
@@ -24,7 +28,7 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
           const data = await getOneProject(Number(id));
           setProject(data);
         } catch (err) {
-          setError('Failed to fetch project');
+          setError("Failed to fetch project");
         } finally {
           setLoading(false);
         }
@@ -39,18 +43,41 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
   if (!project) return <p>Project not found</p>;
 
   return (
-  <>
-    <div className='project-detail' style={{ backgroundImage: `url(${project.image})` }}>
-      <h1>{project.title}</h1>
-      <p>{project.description}</p>
-      <p>{project.objectifs}</p>
-      <p><strong>Technologies:</strong>{project.technologies && JSON.stringify(project.technologies).replace(/[\[\]"]+/g, '')}</p> 
-      <p><strong>Category:</strong> {project.category}</p>
-      <p><strong>Result:</strong> {project.result}</p>
-    </div>
-
-    <Footer />
-  </>
+    <>
+      <Header />
+      <div className="container-one-project">
+        <div
+          style={{ backgroundImage: `url(${project.image})` }}
+          className="image-blur-one-project"
+        ></div>
+        <div className="gradient_back"></div>
+        <div className="project-detail">
+          <h1>{project.title}</h1>
+          <p className="category_one_project">{project.category}</p>
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={750}
+            height={350}
+          />
+          <p className="description_one_project">{project.objectifs}</p>
+          <p className="technologies_one_project">
+            {project.technologies &&
+              project.technologies.map((tech, index) => (
+                <span key={index} className="technology-span">
+                  {tech}
+                </span>
+              ))}
+          </p>
+          <p className="description_one_project">{project.description}</p>
+          <a className="link_one_project" href={project.result} target="_blank">
+            <span>Visiter le site</span>
+            <ArrowUpRight />
+          </a>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 
