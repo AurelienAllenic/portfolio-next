@@ -2,78 +2,98 @@
   background-color: black;
   padding: 50px;
   min-height: 100vh;
+
   h1 {
     font-size: 4rem;
-    background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+    background: linear-gradient(65deg, rgb(255, 255, 255), transparent);
     -webkit-background-clip: text;
     color: transparent;
     text-align: center;
+    padding: 4rem 0;
   }
-  .container-all-projects {
+
+  .container__all__projects {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     flex: 1 1 1 30%;
     gap: 10px;
     width: 100%;
-    justify-content: center;
-    align-items: center;
     padding: 50px 0;
-    a {
+
+    .card {
       position: relative;
-      height: 325px;
-      width: 594px;
+      height: 230px;
+      width: 380px;
       display: block;
       border-radius: 5px;
       overflow: hidden;
       object-fit: cover;
       background-size: cover;
       transition: all 0.3s ease-in-out;
-      .containers-infos-project {
+      overflow: hidden;
+      text-decoration: none;
+
+      .hover {
         position: relative;
         z-index: 1;
         padding: 20px;
-        opacity: 0;
-        background: rgba(0, 0, 0, 0.4);
-        transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out;
+        background-color: var(--soft-black);
+        transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
         height: 100%;
-        width: 594px;
+        width: 100%;
         display: flex;
-        align-items: center;
-        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
         gap: 2rem;
-        &.active {
-          opacity: 1;
-          background: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        opacity: 0;
+
+        .realisationButton {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: var(--white);
+          color: var(--soft-black);
+          border: none;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          cursor: pointer;
+          transition: background-color 0.2s ease-in-out, transform .4s cubic-bezier(0, 2.19, 0.27, 0.36);
         }
+        
+        .realisationButton:hover {
+          background-color: #aaaaaa;
+          transform:translate(-50%, -50%) scale(1.1);
+        }
+
         .project-title {
-          font-size: 22px;
           font-weight: bold;
           text-align: center;
-          margin-top: 38px;
+          text-decoration: none;
+          color: var(--white);
+          font-size: 0.9rem;
+          font-weight: 500;
         }
-        .project-description {
-          font-size: 18px;
-          line-height: 24px;
-          font-weight: 300;
-          position: absolute;
-          bottom: 87px;
-          width: 85%;
-          left: 40px;
+
+
+        &:hover {
+          opacity: 1;
+          background-color: rgba(0, 0, 0, 0.8);
         }
-        .project-title,
-        .project-description {
-          color: white;
-        }
-      }
-      &:hover {
-        transform: scale(1.03);
       }
     }
   }
 }
 .filters {
   display: flex;
-  gap: 10px;
+  gap: 2rem;
   padding: 25px 0 5px 0;
   select {
     padding: 10px 25px;
