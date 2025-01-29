@@ -26,9 +26,9 @@ function LandingPage() {
             Nous créons des sites web modernes, performants et optimisés grâce
             aux technologies les plus avancées, comme les RSC.
           </p>
-          <button className={styles.projectsButton}>
+          <a className={styles.projectsButton} href="/projects" >
             Accéder aux projets <ArrowUpRight size={20} />
-          </button>
+          </a>
         </main>
       </div>
 

@@ -70,7 +70,7 @@ const ContactPage: React.FC = () => {
   }, [isFormSuccess]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id='contact-form'>
       <h1>Contactez-nous</h1>
 
       {/* Display success message if the form is submitted successfully */}

@@ -8,7 +8,7 @@ function Header() {
       <Link href="/">
       <div className={styles.logo}>RenderFlow.</div>
     </Link>
-      <button className={styles.contactButton}>Contactez-nous</button>
+      <Link href="#contact-form" className={styles.contactButton}>Contactez-nous</Link>
     </header>
   );
 }

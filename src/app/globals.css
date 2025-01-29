@@ -15,3 +15,8 @@
   margin: 0;
   font-family: 'Afacad', sans-serif;
 }
+
+
+html {
+  scroll-behavior: smooth;
+}

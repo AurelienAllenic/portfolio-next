@@ -43,6 +43,7 @@
     }
 
     .projectsButton {
+      text-decoration: none;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -98,6 +99,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-100%);
     }
@@ -118,11 +120,9 @@
     font-weight: 500;
     width: 700px;
     text-align: center;
-    background: linear-gradient(
-      75deg,
-      rgb(214, 214, 214),
-      rgba(214, 214, 214, 0.406)
-    );
+    background: linear-gradient(75deg,
+        rgb(214, 214, 214),
+        rgba(214, 214, 214, 0.406));
     -webkit-background-clip: text;
     color: transparent;
   }
