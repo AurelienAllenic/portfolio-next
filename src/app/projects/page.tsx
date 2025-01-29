@@ -5,6 +5,8 @@ import { fetchProjects } from "../api/action";
 import Link from "next/link";
 import "./styles.scss";
 import { Project } from "../types";
+import Header from "../components/Header/Header";
+import styles from "../page.module.scss";
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -72,58 +74,61 @@ const Projects: FC = () => {
   };
 
   return (
-    <div className="container-page-all-projects">
-      <h1>Nos réalisations</h1>
+    <>
+      <Header />
+      <div className="container-page-all-projects">
+        <h1>Nos réalisations</h1>
 
-      <div className="filters">
-        <select
-          onChange={(e) => setSelectedTechnology(e.target.value)}
-          value={selectedTechnology}
-        >
-          <option value="">Select Technology</option>
-          {allTechnologies.map((tech, index) => (
-            <option key={index} value={tech}>
-              {tech}
-            </option>
-          ))}
-        </select>
+        <div className="filters">
+          <select
+            onChange={(e) => setSelectedTechnology(e.target.value)}
+            value={selectedTechnology}
+          >
+            <option value="">Select Technology</option>
+            {allTechnologies.map((tech, index) => (
+              <option key={index} value={tech}>
+                {tech}
+              </option>
+            ))}
+          </select>
 
-        <select
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          value={selectedCategory}
-        >
-          <option value="">Select Category</option>
-          {allCategories.map((category, index) => (
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </div>
+          <select
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            value={selectedCategory}
+          >
+            <option value="">Select Category</option>
+            {allCategories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <ul className="container-all-projects">
-        {filteredProjects.map((project) => (
-          <div key={project.id} className="project-container">
-            <Link
-              href={`/project/${project.id}`}
-              className="project-link"
-              style={{ backgroundImage: `url(${project.image})` }}
-              onMouseEnter={() => handleMouseEnter(project.id)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div
-                className={`containers-infos-project ${
-                  activeProject === project.id ? "active" : "active"
-                }`}
+        <ul className="container-all-projects">
+          {filteredProjects.map((project) => (
+            <div key={project.id} className="project-container">
+              <Link
+                href={`/project/${project.id}`}
+                className="project-link"
+                style={{ backgroundImage: `url(${project.image})` }}
+                onMouseEnter={() => handleMouseEnter(project.id)}
+                onMouseLeave={handleMouseLeave}
               >
-                <p className="project-title">{project.title}</p>
-                <p className="project-description">{project.description}</p>
-              </div>
-            </Link>
-          </div>
-        ))}
-      </ul>
-    </div>
+                <div
+                  className={`containers-infos-project ${
+                    activeProject === project.id ? "active" : "active"
+                  }`}
+                >
+                  <p className="project-title">{project.title}</p>
+                  <p className="project-description">{project.description}</p>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 
