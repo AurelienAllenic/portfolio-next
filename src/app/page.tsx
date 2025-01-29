@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Header from "./components/Header/Header";
+import Image from "next/image";
+import Footer from "./components/footer";
 
 function LandingPage() {
   return (
@@ -126,6 +128,7 @@ function LandingPage() {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

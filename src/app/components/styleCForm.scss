@@ -1,23 +1,26 @@
 form {
-  background-color: #333;
-  /* Darker background for the form */
   padding: 20px;
   border-radius: 5px;
-  width: 100%;
+  width: 600px;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  /* Darker shadow effect */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 4rem 0;
 
   h1 {
     text-align: center;
-    color: #81C784;
-    /* Softer green for the header */
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   div {
+    width: 100%;
     margin-bottom: 15px;
 
     label {
@@ -33,18 +36,14 @@ form {
     textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #555;
-      /* Darker border color */
       border-radius: 5px;
       font-size: 1em;
-      background-color: #444;
-      /* Dark background for inputs */
+      background-color: #1A1A1A;
       color: white;
-      /* White text in inputs */
+      border: 0;
 
       &:focus {
         border-color: #81C784;
-        /* Green border on focus */
         outline: none;
       }
     }
@@ -58,7 +57,7 @@ form {
   button {
     width: 100%;
     padding: 10px;
-    background-color: #3BC2B9;
+    background-color: var(--blue);
     /* Darker green background for the button */
     color: black;
     /* White text on button */
@@ -66,11 +65,13 @@ form {
     border-radius: 5px;
     font-size: 1.2em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 0px 10px #3bc2b900;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
 
     &:hover {
-      background-color: #2C6F2B;
-      /* Darker green when hovered */
+      background-color: #3fd6cc;
+      box-shadow: 0 0px 10px #3bc2b955;
+
     }
   }
 
@@ -80,8 +81,6 @@ form {
 }
 
 .success-message {
-  color: #66BB6A;
-  /* Lighter green color for success */
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
@@ -89,7 +88,6 @@ form {
 
 .error-message {
   color: #E53935;
-  /* Red color for error */
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
