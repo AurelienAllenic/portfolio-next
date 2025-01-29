@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react"; // Icône Lucide
 import { Project } from "../types";
 import Header from "../components/Header/Header";
 import "./styles.scss"; // Assure-toi que les styles sont bien importés
+import Footer from "../components/footer";
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -77,40 +78,40 @@ const Projects: FC = () => {
     <>
       <Header />
       <>
-      <div className="container-page-all-projects">
+        <div className="container-page-all-projects">
           <h1>Nos réalisations</h1>
 
-        <div className="filters">
-          <div className="custom-select">
-            <select
-              onChange={(e) => setSelectedTechnology(e.target.value)}
-              value={selectedTechnology}
-            >
-              <option value="">Technologie</option>
-              {allTechnologies.map((tech, index) => (
-                <option key={index} value={tech}>
-                  {tech}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="select-icon" />
-          </div>
+          <div className="filters">
+            <div className="custom-select">
+              <select
+                onChange={(e) => setSelectedTechnology(e.target.value)}
+                value={selectedTechnology}
+              >
+                <option value="">Technologie</option>
+                {allTechnologies.map((tech, index) => (
+                  <option key={index} value={tech}>
+                    {tech}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="select-icon" />
+            </div>
 
-          <div className="custom-select">
-            <select
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              value={selectedCategory}
-            >
-              <option value="">Categorie</option>
-              {allCategories.map((category, index) => (
-                <option key={index} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="select-icon" />
+            <div className="custom-select">
+              <select
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                value={selectedCategory}
+              >
+                <option value="">Categorie</option>
+                {allCategories.map((category, index) => (
+                  <option key={index} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="select-icon" />
+            </div>
           </div>
-        </div>
 
           <ul className="container-all-projects">
             {filteredProjects.map((project) => (
@@ -135,8 +136,8 @@ const Projects: FC = () => {
             ))}
           </ul>
         </div>
-      <Footer />
-    </>
+        <Footer />
+      </>
     </>
   );
 };
