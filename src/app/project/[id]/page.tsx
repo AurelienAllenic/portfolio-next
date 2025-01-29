@@ -28,7 +28,7 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
         try {
           const data = await getOneProject(Number(id));
           setProject(data);
-        } catch (err) {
+        } catch  {
           setError("Failed to fetch project");
         } finally {
           setLoading(false);
@@ -57,7 +57,7 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
           <p className="category_one_project">{project.category}</p>
           <Image
             src={project.image}
-            alt={project.title ? project.title : project.title}
+            alt={project.title ? project.title : "filer immage"}
             width={750}
             height={350}
             priority
