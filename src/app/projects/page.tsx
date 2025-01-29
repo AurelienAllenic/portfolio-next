@@ -3,10 +3,10 @@
 import { FC, useEffect, useState } from "react";
 import { fetchProjects } from "../api/action";
 import Link from "next/link";
-import "./styles.scss";
+import { ChevronDown } from "lucide-react"; // Icône Lucide
 import { Project } from "../types";
 import Header from "../components/Header/Header";
-import styles from "../page.module.scss";
+import "./styles.scss"; // Assure-toi que les styles sont bien importés
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -80,29 +80,35 @@ const Projects: FC = () => {
         <h1>Nos réalisations</h1>
 
         <div className="filters">
-          <select
-            onChange={(e) => setSelectedTechnology(e.target.value)}
-            value={selectedTechnology}
-          >
-            <option value="">Select Technology</option>
-            {allTechnologies.map((tech, index) => (
-              <option key={index} value={tech}>
-                {tech}
-              </option>
-            ))}
-          </select>
+          <div className="custom-select">
+            <select
+              onChange={(e) => setSelectedTechnology(e.target.value)}
+              value={selectedTechnology}
+            >
+              <option value="">Technologie</option>
+              {allTechnologies.map((tech, index) => (
+                <option key={index} value={tech}>
+                  {tech}
+                </option>
+              ))}
+            </select>
+            <ChevronDown size={16} className="select-icon" />
+          </div>
 
-          <select
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            value={selectedCategory}
-          >
-            <option value="">Select Category</option>
-            {allCategories.map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
+          <div className="custom-select">
+            <select
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              value={selectedCategory}
+            >
+              <option value="">Categorie</option>
+              {allCategories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <ChevronDown size={16} className="select-icon" />
+          </div>
         </div>
 
         <ul className="container-all-projects">
