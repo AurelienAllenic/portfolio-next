@@ -15,7 +15,7 @@ interface ProjectPageProps {
 }
 
 const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
-  const { id } = params;
+  const { id } = use(params);
 
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -31,6 +31,7 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
           setError("Failed to fetch project");
         } finally {
           setLoading(false);
+      
         }
       }
     };
@@ -56,7 +57,7 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
           <p className="category_one_project">{project.category}</p>
           <Image
             src={project.image}
-            alt={project.title}
+            alt={project.title ? project.title : project.title}
             width={750}
             height={350}
             priority
@@ -64,10 +65,10 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
           <p className="description_one_project">{project.objectifs}</p>
           <p className="technologies_one_project">
             {project.technologies &&
-              project.technologies.map((tech, index) => (
-                <span key={index} className="technology-span">
-                  {tech}
-                </span>
+              project.technologies.map((tech: string, index: number) => (
+              <span key={index} className="technology-span">
+                {tech}
+              </span>
               ))}
           </p>
           <p className="description_one_project">{project.description}</p>
