@@ -7,6 +7,7 @@ import "./styles.scss";
 import { Project } from "../types";
 import Header from "../components/Header/Header";
 import styles from "../page.module.scss";
+import Footer from "../components/footer";
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -76,8 +77,9 @@ const Projects: FC = () => {
   return (
     <>
       <Header />
+      <>
       <div className="container-page-all-projects">
-        <h1>Nos réalisations</h1>
+          <h1>Nos réalisations</h1>
 
         <div className="filters">
           <select
@@ -105,29 +107,31 @@ const Projects: FC = () => {
           </select>
         </div>
 
-        <ul className="container-all-projects">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="project-container">
-              <Link
-                href={`/project/${project.id}`}
-                className="project-link"
-                style={{ backgroundImage: `url(${project.image})` }}
-                onMouseEnter={() => handleMouseEnter(project.id)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div
-                  className={`containers-infos-project ${
-                    activeProject === project.id ? "active" : "active"
-                  }`}
+          <ul className="container-all-projects">
+            {filteredProjects.map((project) => (
+              <div key={project.id} className="project-container">
+                <Link
+                  href={`/project/${project.id}`}
+                  className="project-link"
+                  style={{ backgroundImage: `url(${project.image})` }}
+                  onMouseEnter={() => handleMouseEnter(project.id)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <p className="project-title">{project.title}</p>
-                  <p className="project-description">{project.description}</p>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </ul>
-      </div>
+                  <div
+                    className={`containers-infos-project ${
+                      activeProject === project.id ? "active" : "active"
+                    }`}
+                  >
+                    <p className="project-title">{project.title}</p>
+                    <p className="project-description">{project.description}</p>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </ul>
+        </div>
+      <Footer />
+    </>
     </>
   );
 };

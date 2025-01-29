@@ -33,28 +33,26 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Contact Us</h1>
+    <>
       <form onSubmit={handleSubmit}>
+        <h1>Contactez-nous</h1>
         <div>
-          <label htmlFor="nom">Nom:</label>
-          <input type="text" id="nom" name="nom" required />
+          <input type="text" id="nom" name="nom" placeholder='Nom' required />
         </div>
         <div>
-          <label htmlFor="mail">Mail:</label>
-          <input type="email" id="mail" name="mail" required />
+          <input type="email" id="mail" name="mail" placeholder='Email' required />
         </div>
         <div>
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" placeholder='Votre message' required></textarea>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Envoyer</button>
       </form>
 
-      {/* Conditional Rendering for Success/Error Messages */}
-      {isSubmitted && <p className="success-message">Your request has been sent successfully!</p>}
+      {isSubmitted && <p className="success-message">
+        Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs
+        </p>}
       {error && <p className="error-message">{error}</p>}
-    </div>
+    </>
   );
 };
 

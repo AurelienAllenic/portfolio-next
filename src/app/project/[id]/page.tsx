@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from 'react';
 import { getOneProject } from '../../api/action';
 import { Project } from '../../types';
 import { use } from 'react';
+import Footer from '@/app/components/footer';
 
 interface ProjectPageProps {
   params: { id: string };
@@ -38,6 +39,7 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
   if (!project) return <p>Project not found</p>;
 
   return (
+  <>
     <div className='project-detail' style={{ backgroundImage: `url(${project.image})` }}>
       <h1>{project.title}</h1>
       <p>{project.description}</p>
@@ -46,6 +48,9 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
       <p><strong>Category:</strong> {project.category}</p>
       <p><strong>Result:</strong> {project.result}</p>
     </div>
+
+    <Footer />
+  </>
   );
 };
 
