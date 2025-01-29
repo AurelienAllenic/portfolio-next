@@ -15,7 +15,7 @@ interface ProjectPageProps {
 }
 
 const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
-  const { id } = use(params);
+  const { id } = params;
 
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

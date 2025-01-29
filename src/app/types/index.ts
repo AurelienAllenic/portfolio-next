@@ -3,7 +3,7 @@ type JsonArray = (string | null)[];
 interface Project {
     id: number;
     image: string;
-    title: string;  
+    title?: string;  
     description: string;
     category: string;
     objectifs?: string; 
