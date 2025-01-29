@@ -57,19 +57,25 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
           <p className="category_one_project">{project.category}</p>
           <Image
             src={project.image}
-            alt={project.title ? project.title : "filer immage"}
+            alt={project.title ?? "Default Title"}
             width={750}
             height={350}
             priority
           />
+
           <p className="description_one_project">{project.objectifs}</p>
           <p className="technologies_one_project">
-            {project.technologies &&
-              project.technologies.map((tech: string, index: number) => (
-                <span key={index} className="technology-span">
-                  {tech}
-                </span>
-              ))}
+          {project.technologies && Array.isArray(project.technologies) ? (
+              project.technologies
+                .filter((tech) => typeof tech === "string")
+                .map((tech: string, index: number) => (
+                  <span key={index} className="technology-span">
+                    {tech}
+                  </span>
+                ))
+            ) : (
+              <p>No technologies available</p>
+            )}
           </p>
           <p className="description_one_project">{project.description}</p>
           <a className="link_one_project" href={project.result} target="_blank">
