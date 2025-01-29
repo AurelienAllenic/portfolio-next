@@ -59,6 +59,7 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
             alt={project.title}
             width={750}
             height={350}
+            priority
           />
           <p className="description_one_project">{project.objectifs}</p>
           <p className="technologies_one_project">
