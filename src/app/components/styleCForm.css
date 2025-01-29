@@ -1,0 +1,88 @@
+form {
+  padding: 20px;
+  border-radius: 5px;
+  width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 4rem 0;
+}
+form h1 {
+  text-align: center;
+  font-size: 3rem;
+  background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+form div {
+  width: 100%;
+  margin-bottom: 15px;
+}
+form div label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+  /* White color for labels */
+}
+form div input[type=text],
+form div input[type=email],
+form div textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: #1A1A1A;
+  color: white;
+  border: 0;
+}
+form div input[type=text]:focus,
+form div input[type=email]:focus,
+form div textarea:focus {
+  border-color: #81C784;
+  outline: none;
+}
+form div textarea {
+  height: 150px;
+  resize: vertical;
+}
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--blue);
+  /* Darker green background for the button */
+  color: black;
+  /* White text on button */
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  box-shadow: 0 0px 10px rgba(59, 194, 185, 0);
+  transition: background-color 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+form button:hover {
+  background-color: #3fd6cc;
+  box-shadow: 0 0px 10px rgba(59, 194, 185, 0.3333333333);
+}
+@media (max-width: 768px) {
+  form {
+    width: 90%;
+  }
+}
+
+.success-message {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: #E53935;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}/*# sourceMappingURL=styleCForm.css.map */
