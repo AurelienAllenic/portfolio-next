@@ -7,8 +7,8 @@ import { ChevronDown } from "lucide-react";
 import { Project } from "../types";
 import Header from "../components/Header/Header";
 import "./styles.scss";
-import Footer from "../components/footer";
 import { ArrowUpRight } from "lucide-react";
+import Footer from "../components/footer";
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -42,6 +42,7 @@ const Projects: FC = () => {
         }));
 
         setProjects(formattedData);
+        console.log(data);
         setFilteredProjects(formattedData);
       } catch (err) {
         console.error("Error fetching projects:", err);
@@ -87,40 +88,40 @@ const Projects: FC = () => {
   return (
     <>
       <Header />
-      <div className="container-page-all-projects">
+        <div className="container-page-all-projects">
         <h1>Nos réalisations</h1>
 
-        <div className="filters">
-          <div className="custom-select">
-            <select
-              onChange={(e) => setSelectedTechnology(e.target.value)}
-              value={selectedTechnology}
-            >
-              <option value="">Technologie</option>
-              {allTechnologies.map((tech, index) => (
-                <option key={index} value={tech}>
-                  {tech}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="select-icon" />
-          </div>
+          <div className="filters">
+            <div className="custom-select">
+              <select
+                onChange={(e) => setSelectedTechnology(e.target.value)}
+                value={selectedTechnology}
+              >
+                <option value="">Technologie</option>
+                {allTechnologies.map((tech, index) => (
+                  <option key={index} value={tech}>
+                    {tech}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="select-icon" />
+            </div>
 
-          <div className="custom-select">
-            <select
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              value={selectedCategory}
-            >
-              <option value="">Catégorie</option>
-              {allCategories.map((category, index) => (
-                <option key={index} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="select-icon" />
+            <div className="custom-select">
+              <select
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                value={selectedCategory}
+              >
+                <option value="">Catégorie</option>
+                {allCategories.map((category, index) => (
+                  <option key={index} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="select-icon" />
+            </div>
           </div>
-        </div>
 
         <div className="container__all__projects">
           {filteredProjects.map((project) => (
@@ -143,8 +144,8 @@ const Projects: FC = () => {
           ))}
         </div>
       </div>
-      <Footer />
-    </>
+        <Footer />
+      </>
   );
 };
 
