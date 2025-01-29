@@ -133,6 +133,7 @@ const Projects: FC = () => {
               style={{ backgroundImage: `url(${project.image})` }}
               target="_blank"
               rel="noopener noreferrer"
+              prefetch={true}
             >
               <div className={`hover`}>
                 <div className={"realisationButton"}>
