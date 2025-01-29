@@ -79,15 +79,56 @@
     padding: 10px 25px;
     background: transparent;
     display: block;
-    border: 1px solid white;
     color: white;
     transition: all ease-in-out 0.3s;
-    &:hover {
+    padding-right: 30px; /* Espace pour l'icône */
+    font-size: 1rem;
+    padding-left: 10px;
+    width: 200px; /* Ajuste la largeur selon tes besoins */
+    -webkit-appearance: none; /* Pour les navigateurs basés sur WebKit (Chrome, Safari) */
+    -moz-appearance: none; /* Pour Firefox */
+    appearance: none;
+    border-bottom: 3px solid #3bc2b9;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    &:hover,
+    &:focus {
       transform: scale(1.04);
+      outline: none;
       transition: all ease-in-out 0.3s;
     }
     option {
       color: black;
     }
   }
+}
+option {
+  background-color: black;
+  color: #3bc2b9 !important;
+  font-weight: 700;
+  font-size: 17px;
+  &:hover,
+  &:focus {
+    background-color: black !important;
+  }
+  &:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+}
+.custom-select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.select-icon {
+  position: absolute;
+  top: 55%;
+  right: 0px;
+  width: 2em;
+  height: 2em;
+  transform: translateY(-50%);
+  pointer-events: none;
+  fill: white;
 }
