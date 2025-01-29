@@ -88,47 +88,46 @@ const Projects: FC = () => {
   return (
     <>
       <Header />
-        <div className="container-page-all-projects">
-
+      <div className="container-page-all-projects">
         <h1>Nos réalisations</h1>
 
-          <div className="filters">
-            <div className="custom-select">
-              <select
-                onChange={(e) => setSelectedTechnology(e.target.value)}
-                value={selectedTechnology}
-              >
-                <option value="">Technologie</option>
-                {allTechnologies.map((tech, index) => (
-                  <option key={index} value={tech}>
-                    {tech}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown size={16} className="select-icon" />
-            </div>
-
-            <div className="custom-select">
-              <select
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                value={selectedCategory}
-              >
-                <option value="">Catégorie</option>
-                {allCategories.map((category, index) => (
-                  <option key={index} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown size={16} className="select-icon" />
-            </div>
+        <div className="filters">
+          <div className="custom-select">
+            <select
+              onChange={(e) => setSelectedTechnology(e.target.value)}
+              value={selectedTechnology}
+            >
+              <option value="">Technologie</option>
+              {allTechnologies.map((tech, index) => (
+                <option key={index} value={tech}>
+                  {tech}
+                </option>
+              ))}
+            </select>
+            <ChevronDown size={16} className="select-icon" />
           </div>
+
+          <div className="custom-select">
+            <select
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              value={selectedCategory}
+            >
+              <option value="">Catégorie</option>
+              {allCategories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <ChevronDown size={16} className="select-icon" />
+          </div>
+        </div>
 
         <div className="container__all__projects">
           {filteredProjects.map((project) => (
             <Link
               key={project.id}
-              href={project.result} // Redirection vers l'URL du projet
+              href={`project/${project.id}`} // Redirection vers l'URL du projet
               className="card"
               style={{ backgroundImage: `url(${project.image})` }}
               target="_blank"
@@ -137,7 +136,7 @@ const Projects: FC = () => {
             >
               <div className={`hover`}>
                 <div className={"realisationButton"}>
-                    <ArrowUpRight size={24} />
+                  <ArrowUpRight size={24} />
                 </div>
                 <p className="project-title">{project.title}</p>
               </div>
@@ -145,8 +144,8 @@ const Projects: FC = () => {
           ))}
         </div>
       </div>
-        <Footer />
-      </>
+      <Footer />
+    </>
   );
 };
 
