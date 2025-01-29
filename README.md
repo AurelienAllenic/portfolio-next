@@ -33,7 +33,7 @@ Afin d'ajouter de manipuler les données, nous avons mis en place une action qui
 
 ## Strcuture du projet
 
-Le projet dispose de trois pages :
+Le projet dispose de deux pages :
 
 - Page d'accueil (landing)
 - Listing des projets (projects)
