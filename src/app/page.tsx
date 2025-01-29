@@ -3,6 +3,7 @@ import styles from "./page.module.scss";
 import { ArrowRight, Pencil, Palette, Zap, MonitorSmartphone, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import Footer from "./components/footer";
 
 function LandingPage() {
   return (
@@ -116,7 +117,7 @@ function LandingPage() {
         </div>
 
       </div>
-
+      <Footer />
     </div>
   );
 }
