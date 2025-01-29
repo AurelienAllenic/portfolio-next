@@ -9,13 +9,14 @@ import "./styles.scss";
 import Header from "@/app/components/Header/Header";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { useParams } from "next/navigation";
 
 interface ProjectPageProps {
   params: { id: string };
 }
 
-const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
-  const { id } = use(params);
+const ProjectDetail: FC<ProjectPageProps> = () => {
+  const { id } = useParams();
 
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -31,7 +32,6 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
           setError("Failed to fetch project");
         } finally {
           setLoading(false);
-      
         }
       }
     };
@@ -66,9 +66,9 @@ const ProjectDetail: FC<ProjectPageProps> = ({ params }) => {
           <p className="technologies_one_project">
             {project.technologies &&
               project.technologies.map((tech: string, index: number) => (
-              <span key={index} className="technology-span">
-                {tech}
-              </span>
+                <span key={index} className="technology-span">
+                  {tech}
+                </span>
               ))}
           </p>
           <p className="description_one_project">{project.description}</p>
