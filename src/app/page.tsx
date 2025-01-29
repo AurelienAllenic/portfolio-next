@@ -35,18 +35,18 @@ function LandingPage() {
       <div className={styles.carousel}>
         <div className={styles.slider}>
           <div className={styles.carouselTrack}>
-            <img src="./images/partners/airtable.svg" alt="Image 1" />
-            <img src="./images/partners/canvas.svg" alt="Image 2" />
-            <img src="./images/partners/soundcloud.svg" alt="Image 3" />
-            <img src="./images/partners/stripe.svg" alt="Image 4" />
-            <img src="./images/partners/trello.svg" alt="Image 5" />
+            <Image src="./images/partners/airtable.svg" alt="Image 1" width={200} height={200} />
+            <Image src="./images/partners/canvas.svg" alt="Image 2" width={200} height={200} />
+            <Image src="./images/partners/soundcloud.svg" alt="Image 3" width={200} height={200} />
+            <Image src="./images/partners/stripe.svg" alt="Image 4" width={200} height={200} />
+            <Image src="./images/partners/trello.svg" alt="Image 5" width={200} height={200} />
           </div>
           <div className={styles.carouselTrack}>
-            <img src="./images/partners/airtable.svg" alt="Image 1" />
-            <img src="./images/partners/canvas.svg" alt="Image 2" />
-            <img src="./images/partners/soundcloud.svg" alt="Image 3" />
-            <img src="./images/partners/stripe.svg" alt="Image 4" />
-            <img src="./images/partners/trello.svg" alt="Image 5" />
+            <Image src="./images/partners/airtable.svg" alt="Image 1" width={200} height={200} />
+            <Image src="./images/partners/canvas.svg" alt="Image 2" width={200} height={200} />
+            <Image src="./images/partners/soundcloud.svg" alt="Image 3" width={200} height={200} />
+            <Image src="./images/partners/stripe.svg" alt="Image 4" width={200} height={200} />
+            <Image src="./images/partners/trello.svg" alt="Image 5" width={200} height={200} />
           </div>
         </div>
       </div>
