@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react"; // Icône Lucide
 import { Project } from "../types";
 import Header from "../components/Header/Header";
 import "./styles.scss"; // Assure-toi que les styles sont bien importés
+import Footer from "../components/footer";
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -24,6 +25,7 @@ const Projects: FC = () => {
       try {
         const data = await fetchProjects();
         setProjects(data);
+        console.log(data);
         setFilteredProjects(data);
       } catch (err) {
         console.log(err);

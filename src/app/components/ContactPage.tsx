@@ -1,58 +1,118 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useActionState } from 'react';
+import { useState, useEffect, startTransition } from 'react';
 import handleFormSubmission from '@app/actionForm';
 import './styleCForm.scss';
 
+export type ContactFormState = {
+  nom: { value: string; errors?: string[] };
+  mail: { value: string; errors?: string[] };
+  message: { value: string; errors?: string[] };
+};
+
 const ContactPage: React.FC = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    nom: '',
+    mail: '',
+    message: '',
+  });
 
-  // Handle form submission
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const [state, formAction, isPending] = useActionState<ContactFormState, FormData>(
+    handleFormSubmission,
+    { nom: { value: formData.nom, errors: [] }, mail: { value: formData.mail, errors: [] }, message: { value: formData.message, errors: [] } }
+  );
 
-    try {
-      const formData = new FormData(event.target as HTMLFormElement);
-      await handleFormSubmission(formData);
-      setIsSubmitted(true);
-      setError(null); // Reset any previous errors
-    } catch (err) {
-      handleFormError(err);
-    }
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [isFormSuccess, setIsFormSuccess] = useState(false); // State for success message
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle error logic
-  const handleFormError = (err: unknown) => {
-    if (err instanceof Error) {
-      setError(err.message || 'There was an error with your submission. Please try again.');
-    } else {
-      setError('There was an error with your submission. Please try again.');
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.nom || !formData.mail || !formData.message) {
+      alert("Tous les champs doivent être remplis.");
+      return;
     }
-    setIsSubmitted(false);
+
+    startTransition(() => {
+      const formDataObj = new FormData(e.target as HTMLFormElement);
+      formAction(formDataObj); // Dispatch form data asynchronously
+    });
   };
+
+  // Reset form only when submission is successful
+  useEffect(() => {
+    if (!isPending && !state.nom.errors && !state.mail.errors && !state.message.errors && isFormSubmitted) {
+      setFormData({ nom: '', mail: '', message: '' });
+      setIsFormSubmitted(false);
+      setIsFormSuccess(true); // Set success message flag
+    }
+  }, [isPending, state, isFormSubmitted]);
+
+  // Mark form as successfully submitted after the action
+  useEffect(() => {
+    if (!isPending && !state.nom.errors && !state.mail.errors && !state.message.errors) {
+      setIsFormSubmitted(true); // Set the flag when submission is successful
+    }
+  }, [isPending, state]);
+
+  // Reset success message after a short delay
+  useEffect(() => {
+    if (isFormSuccess) {
+      setTimeout(() => {
+        setIsFormSuccess(false); // Reset success message after 3 seconds
+      }, 3000);
+    }
+  }, [isFormSuccess]);
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h1>Contactez-nous</h1>
-        <div>
-          <input type="text" id="nom" name="nom" placeholder='Nom' required />
-        </div>
-        <div>
-          <input type="email" id="mail" name="mail" placeholder='Email' required />
-        </div>
-        <div>
-          <textarea id="message" name="message" placeholder='Votre message' required></textarea>
-        </div>
-        <button type="submit">Envoyer</button>
-      </form>
+    <form onSubmit={handleSubmit}>
+      <h1>Contactez-nous</h1>
 
-      {isSubmitted && <p className="success-message">
-        Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs
-        </p>}
-      {error && <p className="error-message">{error}</p>}
-    </>
+      {/* Display success message if the form is submitted successfully */}
+      {isFormSuccess && <p className="success-message">Le formulaire a été envoyé avec succès !</p>}
+
+      <div>
+        <input
+          type="text"
+          name="nom"
+          value={formData.nom}
+          onChange={handleChange}
+          placeholder="Nom"
+          required
+        />
+        {state.nom.errors && state.nom.errors.length > 0 && 
+          state.nom.errors.map((error, index) => <p key={index} className="error-message">{error}</p>)}
+      </div>
+      <div>
+        <input
+          type="email"
+          name="mail"
+          value={formData.mail}
+          onChange={handleChange}
+          placeholder="Email"
+          required
+        />
+        {state.mail.errors && state.mail.errors.length > 0 && 
+          state.mail.errors.map((error, index) => <p key={index} className="error-message">{error}</p>)}
+      </div>
+      <div>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Votre message"
+          required
+        ></textarea>
+        {state.message.errors && state.message.errors.length > 0 && 
+          state.message.errors.map((error, index) => <p key={index} className="error-message">{error}</p>)}
+      </div>
+      <button type="submit" disabled={isPending}>{isPending ? 'En cours...' : 'Envoyer'}</button>
+    </form>
   );
 };
 
