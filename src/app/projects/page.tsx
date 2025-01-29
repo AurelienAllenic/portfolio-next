@@ -3,10 +3,12 @@
 import { FC, useEffect, useState } from "react";
 import { fetchProjects } from "../api/action";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react"; // Icône Lucide
+import { ChevronDown } from "lucide-react";
 import { Project } from "../types";
 import Header from "../components/Header/Header";
-import "./styles.scss"; // Assure-toi que les styles sont bien importés
+import "./styles.scss";
+import Footer from "../components/footer";
+import { ArrowUpRight } from "lucide-react";
 
 const Projects: FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -16,18 +18,34 @@ const Projects: FC = () => {
 
   const [selectedTechnology, setSelectedTechnology] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-
   const [activeProject, setActiveProject] = useState<number | null>(null);
 
   useEffect(() => {
     const loadProjects = async () => {
       try {
         const data = await fetchProjects();
-        setProjects(data);
-        setFilteredProjects(data);
+        if (!Array.isArray(data)) throw new Error("Invalid data format");
+
+        console.log("Fetched Projects:", data);
+
+        const formattedData: Project[] = data.map((project) => ({
+          id: project.id,
+          image: project.image,
+          title: project.title || `Projet ${project.id}`,
+          description: project.description || "Pas de description disponible.",
+          category: project.category,
+          objectifs: project.objectifs || "Aucun objectif spécifié.",
+          technologies: Array.isArray(project.technologies)
+            ? project.technologies.filter((tech) => typeof tech === "string")
+            : [],
+          result: project.result,
+        }));
+
+        setProjects(formattedData);
+        setFilteredProjects(formattedData);
       } catch (err) {
-        console.log(err);
-        setError("Failed to fetch projects");
+        console.error("Error fetching projects:", err);
+        setError("Échec du chargement des projets");
       } finally {
         setLoading(false);
       }
@@ -37,7 +55,7 @@ const Projects: FC = () => {
   }, []);
 
   useEffect(() => {
-    let filtered = projects;
+    let filtered = [...projects];
 
     if (selectedTechnology) {
       filtered = filtered.filter((project) =>
@@ -52,10 +70,11 @@ const Projects: FC = () => {
       );
     }
 
+    console.log("Filtered Projects:", filtered);
     setFilteredProjects(filtered);
   }, [selectedTechnology, selectedCategory, projects]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Chargement...</p>;
   if (error) return <p>{error}</p>;
 
   const allCategories = Array.from(
@@ -65,20 +84,11 @@ const Projects: FC = () => {
     new Set(projects.flatMap((project) => project.technologies))
   );
 
-  const handleMouseEnter = (id: number) => {
-    setActiveProject(id);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveProject(null);
-  };
-
   return (
     <>
       <Header />
-      <>
       <div className="container-page-all-projects">
-          <h1>Nos réalisations</h1>
+        <h1>Nos réalisations</h1>
 
         <div className="filters">
           <div className="custom-select">
@@ -101,7 +111,7 @@ const Projects: FC = () => {
               onChange={(e) => setSelectedCategory(e.target.value)}
               value={selectedCategory}
             >
-              <option value="">Categorie</option>
+              <option value="">Catégorie</option>
               {allCategories.map((category, index) => (
                 <option key={index} value={category}>
                   {category}
@@ -112,31 +122,28 @@ const Projects: FC = () => {
           </div>
         </div>
 
-          <ul className="container-all-projects">
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="project-container">
-                <Link
-                  href={`/project/${project.id}`}
-                  className="project-link"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                  onMouseEnter={() => handleMouseEnter(project.id)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <div
-                    className={`containers-infos-project ${
-                      activeProject === project.id ? "active" : "active"
-                    }`}
-                  >
-                    <p className="project-title">{project.title}</p>
-                    <p className="project-description">{project.description}</p>
-                  </div>
-                </Link>
+        <div className="container__all__projects">
+          {filteredProjects.map((project) => (
+            <Link
+              key={project.id}
+              href={project.result} // Redirection vers l'URL du projet
+              className="card"
+              style={{ backgroundImage: `url(${project.image})` }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className={`hover`}>
+                <div className={"realisationButton"}>
+                    <ArrowUpRight size={24} />
+                </div>
+
+                <p className="project-title">{project.title}</p>
               </div>
-            ))}
-          </ul>
+            </Link>
+          ))}
         </div>
+      </div>
       <Footer />
-    </>
     </>
   );
 };

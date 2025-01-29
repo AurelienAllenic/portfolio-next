@@ -16,10 +16,11 @@ model Project {
   title        String
   description  String
   category     String
-  objectifs    String
+  objectifs    String?  
   technologies Json
   result       String
 }
+
 
 model Contact {
   id       Int    @id @default(autoincrement())
