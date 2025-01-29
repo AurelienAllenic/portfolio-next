@@ -89,6 +89,7 @@ const Projects: FC = () => {
     <>
       <Header />
         <div className="container-page-all-projects">
+
         <h1>Nos réalisations</h1>
 
           <div className="filters">
@@ -137,7 +138,6 @@ const Projects: FC = () => {
                 <div className={"realisationButton"}>
                     <ArrowUpRight size={24} />
                 </div>
-
                 <p className="project-title">{project.title}</p>
               </div>
             </Link>

@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 async function main() {
   const projects = [
     {
-      image: 'https://www.apple.com/v/home/v/images/og/apple_logo_1200x630.jpg',
+      image: 'https://raw.githubusercontent.com/AurelienAllenic/portfolio-next/refs/heads/develop/public/storage/images/apple.webp',
       title: 'Apple Website Redesign',
       description: 'Redesign complet du site web d\'Apple pour améliorer l\'expérience utilisateur et l\'accessibilité.',
       category: 'Web',
@@ -14,7 +14,7 @@ async function main() {
       result: 'Le site a été modernisé, avec une meilleure performance et une interface utilisateur repensée.'
     },
     {
-      image: 'https://www.dji.com/images/logo.png',
+      image: 'https://raw.githubusercontent.com/AurelienAllenic/portfolio-next/refs/heads/develop/public/storage/images/dji.webp',
       title: 'DJI Drones E-commerce',
       description: 'Développement d\'un site e-commerce pour vendre les drones DJI et accessoires.',
       category: 'E-commerce',
@@ -23,7 +23,7 @@ async function main() {
       result: 'Le site est devenu l\'un des plus grands sites de vente de drones, avec un processus de commande fluide.'
     },
     {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Google_2015_logo.svg/1024px-Google_2015_logo.svg.png',
+      image: 'https://raw.githubusercontent.com/AurelienAllenic/portfolio-next/refs/heads/develop/public/storage/images/google.webp',
       title: 'Google Search Engine Optimization',
       description: 'Amélioration de l\'algorithme de recherche de Google pour mieux répondre aux besoins des utilisateurs.',
       category: 'SEO',
@@ -32,7 +32,7 @@ async function main() {
       result: 'Les mises à jour de l\'algorithme ont permis d\'améliorer la qualité des résultats de recherche.'
     },
     {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/5/55/Amazon_logo.png',
+      image: 'https://raw.githubusercontent.com/AurelienAllenic/portfolio-next/refs/heads/develop/public/storage/images/prime-video.webp',
       title: 'Amazon Prime Video Redesign',
       description: 'Refonte de l\'interface utilisateur d\'Amazon Prime Video pour une meilleure expérience de streaming.',
       category: 'Web',
@@ -41,7 +41,7 @@ async function main() {
       result: 'La refonte a permis d\'augmenter les abonnements et de réduire les taux de rebond.'
     },
     {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Slack_Logo.png',
+      image: 'https://raw.githubusercontent.com/AurelienAllenic/portfolio-next/refs/heads/develop/public/storage/images/slack.webp',
       title: 'Slack Communication Platform Enhancement',
       description: 'Amélioration de la plateforme Slack pour faciliter la communication et la collaboration en équipe.',
       category: 'Application',
@@ -50,7 +50,7 @@ async function main() {
       result: 'La mise à jour a permis une adoption plus large en entreprise et a augmenté la productivité des équipes.'
     },
     {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Spotify_Logo_with_text.svg',
+      image: 'https://raw.githubusercontent.com/AurelienAllenic/portfolio-next/refs/heads/develop/public/storage/images/spotify.webp',
       title: 'Spotify Music Streaming API Integration',
       description: 'Création d\'une API permettant d\'intégrer Spotify dans des applications tierces et des sites web.',
       category: 'API',
