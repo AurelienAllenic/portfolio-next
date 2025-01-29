@@ -1,0 +1,30 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  z-index: 10;
+  color: #3bc2b9;
+}
+.header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: rgba(59, 194, 185, 0.4235294118) 1px 0 10px;
+}
+.header .contactButton {
+  padding: 0.5rem 2rem;
+  background-color: #3bc2b9;
+  color: var(--black);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+}
+.header .contactButton:hover {
+  background-color: #2a968f;
+}/*# sourceMappingURL=header.module.css.map */

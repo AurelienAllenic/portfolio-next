@@ -1,0 +1,27 @@
+main {
+  background-color: var(--footer-gray);
+  width: 100%;
+}
+main .contact-container {
+  background-color: #131313;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+main .footer-banner {
+  background-color: #1E1E1E;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+main .footer-content p {
+  font-size: 0.9em;
+  margin: 0;
+  color: var(--gray);
+}
+main .footer-content p a {
+  color: #81C784;
+  text-decoration: none;
+}
+main .footer-content p a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=styleFooter.css.map */

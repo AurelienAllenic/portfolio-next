@@ -1,0 +1,137 @@
+@charset "UTF-8";
+.container-page-all-projects {
+  background-color: black;
+  padding: 50px;
+  min-height: 100vh;
+}
+.container-page-all-projects h1 {
+  font-size: 4rem;
+  background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+.container-page-all-projects .container-all-projects {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 1 30%;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+.container-page-all-projects .container-all-projects a {
+  position: relative;
+  height: 325px;
+  width: 594px;
+  display: block;
+  border-radius: 5px;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  transition: all 0.3s ease-in-out;
+}
+.container-page-all-projects .container-all-projects a .containers-infos-project {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out;
+  height: 100%;
+  width: 594px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.container-page-all-projects .container-all-projects a .containers-infos-project.active {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.container-page-all-projects .container-all-projects a .containers-infos-project .project-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 38px;
+}
+.container-page-all-projects .container-all-projects a .containers-infos-project .project-description {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 300;
+  position: absolute;
+  bottom: 87px;
+  width: 85%;
+  left: 40px;
+}
+.container-page-all-projects .container-all-projects a .containers-infos-project .project-title,
+.container-page-all-projects .container-all-projects a .containers-infos-project .project-description {
+  color: white;
+}
+.container-page-all-projects .container-all-projects a:hover {
+  transform: scale(1.03);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  padding: 25px 0 5px 0;
+}
+.filters select {
+  padding: 10px 25px;
+  background: transparent;
+  display: block;
+  color: white;
+  transition: all ease-in-out 0.3s;
+  padding-right: 30px; /* Espace pour l'icône */
+  font-size: 1rem;
+  padding-left: 10px;
+  width: 200px; /* Ajuste la largeur selon tes besoins */
+  -webkit-appearance: none; /* Pour les navigateurs basés sur WebKit (Chrome, Safari) */
+  -moz-appearance: none; /* Pour Firefox */
+  appearance: none;
+  border-bottom: 3px solid #3bc2b9;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+}
+.filters select:hover, .filters select:focus {
+  transform: scale(1.04);
+  outline: none;
+  transition: all ease-in-out 0.3s;
+}
+.filters select option {
+  color: black;
+}
+
+option {
+  background-color: black;
+  color: #3bc2b9 !important;
+  font-weight: 700;
+  font-size: 17px;
+}
+option:hover, option:focus {
+  background-color: black !important;
+}
+option:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.select-icon {
+  position: absolute;
+  top: 55%;
+  right: 0px;
+  width: 2em;
+  height: 2em;
+  transform: translateY(-50%);
+  pointer-events: none;
+  fill: white;
+}/*# sourceMappingURL=styles.css.map */
