@@ -62,3 +62,8 @@ Pour exécuter les test :
 ![Rapport de la page home en mobile](/public/images/rapports/home_mobile.PNG)
 ![Rapport de la page projects en mobile](/public/images/rapports/projects_mobile.PNG)
 ![Rapport de la page one project en mobile](/public/images/rapports/one_project_mobile.PNG)
+
+# Lien avec la bdd
+
+![Capture de la bdd pour les projets](/public/images/rapports/Capture_projects.PNG)
+![Capture de la bdd pour les messages](/public/images/rapports/Capture_messsage.PNG)
