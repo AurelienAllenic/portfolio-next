@@ -43,3 +43,17 @@ Le projet dispose de deux composants réutilisables principaux:
 
 - Header
 - FooterContact
+
+# Rapports de performance
+
+## Version Desktop
+
+![Rapport de la page home en desktop](/public/images/rapports/home_dektop.PNG)
+![Rapport de la page projects en desktop](/public/images/rapports/projects_desktop.PNG)
+![Rapport de la page one project en desktop](/public/images/rapports/one_project_desktop.PNG)
+
+## Version Mobile
+
+![Rapport de la page home en mobile](/public/images/rapports/home_mobile.PNG)
+![Rapport de la page projects en mobile](/public/images/rapports/projects_mobile.PNG)
+![Rapport de la page one project en mobile](/public/images/rapports/one_project_mobile.PNG)
