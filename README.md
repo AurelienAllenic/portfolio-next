@@ -39,7 +39,7 @@ Le projet dispose de deux pages :
 - Listing des projets (projects)
 - Page d'un projet (projet)
 
-Le projet dispose de trois composants réutilisables principaux:
+Le projet dispose de deux composants réutilisables principaux:
 
 - Header
 - FooterContact
