@@ -1,31 +1,33 @@
-main{
-background-color: var(--footer-gray);
-width: 100%;
+main {
+  position: relative;
+  background-color: var(--footer-gray);
+  width: 100%;
+  z-index: 100000000000;
 
   .contact-container {
     background-color: #131313;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   .footer-banner {
-    background-color: #1E1E1E;
+    background-color: #1e1e1e;
     padding: 20px;
     text-align: center;
     color: white;
   }
-  
+
   .footer-content p {
     font-size: 0.9em;
     margin: 0;
     color: var(--gray);
   }
-  
+
   .footer-content p a {
-    color: #81C784;
+    color: #81c784;
     text-decoration: none;
   }
-  
+
   .footer-content p a:hover {
     text-decoration: underline;
   }
