@@ -7,8 +7,9 @@ import Footer from "@/app/components/footer";
 import "./styles.scss";
 import Header from "@/app/components/Header/Header";
 import Image from "next/image";
-import { ArrowUpRight, LoaderCircle } from "lucide-react";
+import { ArrowUpRight, LoaderCircle, MoveLeft } from "lucide-react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 interface ProjectPageProps {
   params: { id: string };
@@ -57,6 +58,11 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
         ></div>
         <div className="gradient_back"></div>
         <div className="project-detail">
+          <div className="container__link">
+            <Link href="/projects" className="icon__retour">
+              <MoveLeft size={25} />
+            </Link>
+          </div>
           <h1>{project.title}</h1>
           <p className="category_one_project">{project.category}</p>
           <Image
