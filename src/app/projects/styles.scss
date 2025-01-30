@@ -65,12 +65,13 @@
           width: 60px;
           height: 60px;
           cursor: pointer;
-          transition: background-color 0.2s ease-in-out, transform .4s cubic-bezier(0, 2.19, 0.27, 0.36);
+          transition: background-color 0.2s ease-in-out,
+            transform 0.4s cubic-bezier(0, 2.19, 0.27, 0.36);
         }
-        
+
         .realisationButton:hover {
           background-color: #aaaaaa;
-          transform:translate(-50%, -50%) scale(1.1);
+          transform: translate(-50%, -50%) scale(1.1);
         }
 
         .project-title {
@@ -81,7 +82,6 @@
           font-size: 0.9rem;
           font-weight: 500;
         }
-
 
         &:hover {
           opacity: 1;
@@ -151,4 +151,30 @@ option {
   transform: translateY(-50%);
   pointer-events: none;
   fill: white;
+}
+
+@media (max-width: 526px) {
+  .filters {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 496px) {
+  .container-page-all-projects h1 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 397px) {
+  .container-page-all-projects h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 347px) {
+  .container-page-all-projects h1 {
+    font-size: 2rem;
+  }
+  .filters select {
+    font-size: 0.8rem;
+  }
 }
