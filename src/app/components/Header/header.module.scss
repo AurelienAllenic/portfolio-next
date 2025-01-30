@@ -36,3 +36,28 @@
     }
   }
 }
+
+@media (max-width: 432px) {
+  .header {
+    padding: 1rem 2rem;
+    a {
+      .logo {
+        font-size: 1.7rem;
+      }
+    }
+    .contactButton {
+      padding: 0.4rem 1rem;
+    }
+  }
+}
+
+@media (max-width: 358px) {
+  .header {
+    padding: 0.5rem 1rem;
+    a {
+      .logo {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

@@ -182,14 +182,14 @@
       line-height: 6rem;
       font-weight: bold;
       margin-bottom: 1rem;
-      background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+      background: linear-gradient(155deg, #e3e3e3, #5d5d5d9e);
       -webkit-background-clip: text;
       color: transparent;
     }
 
     .description {
       font-size: 1.2rem;
-      background: linear-gradient(75deg, rgb(214, 214, 214), transparent);
+      background: linear-gradient(155deg, #e3e3e3, #5d5d5d9e);
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 2rem;
@@ -287,9 +287,9 @@
 .container__card {
   width: 100%;
   display: flex;
-  justify-content: center; // Alignement à gauche
-  align-items: center; // Alignement en bas
-  gap: 20px; // Espace entre les cartes
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   padding: 40px 20px;
   background-color: var(--black);
 
@@ -305,16 +305,14 @@
       background-color: var(--soft-black);
       border-radius: 5px;
       padding: 2rem;
-      text-align: left; // Texte aligné à gauche
+      text-align: left;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-end;
       gap: 0.5rem;
-
       &:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
@@ -413,3 +411,118 @@
 .realisationButton:hover {
   background-color: #aaaaaa;
 }
+
+@media (max-width: 1199px) {
+  .container__card {
+    .container {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 989px) {
+  .title {
+    width: 100% !important;
+  }
+  .container__card {
+    .container {
+      .card {
+        width: 200px;
+        height: 300px;
+        .cardTitle {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 821px) {
+  .container__card {
+    .container {
+      .card {
+        width: 150px;
+        height: auto;
+        .cardTitle {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container__card {
+    .container {
+      display: flex;
+      flex-direction: column !important;
+      .card {
+        width: 80%;
+        height: auto;
+        .cardTitle {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 691px) {
+  .landingPage {
+    .mainContent {
+      .title {
+        font-size: 4rem;
+        line-height: 4rem;
+      }
+    }
+  }
+  .collabore {
+    h2 {
+      font-size: 1.7rem !important;
+    }
+  }
+}
+
+@media (max-width: 467px) {
+  .landingPage {
+    .mainContent {
+      .title {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+      }
+      .description {
+        font-size: 1rem;
+      }
+    }
+  }
+  .collabore {
+    h2 {
+      font-size: 1.3rem !important;
+    }
+  }
+  .carouselTrack {
+    img {
+      width: 150px !important;
+      height: auto !important;
+      padding: 0 25px;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 358px) {
+  .landingPage {
+    .mainContent {
+      .title {
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+    }
+  }
+  .collabore {
+    h2 {
+      font-size: 1.1rem !important;
+    }
+  }
+}
+
