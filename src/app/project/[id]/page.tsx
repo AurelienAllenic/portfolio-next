@@ -3,12 +3,11 @@
 import { FC, useEffect, useState } from "react";
 import { getOneProject } from "../../api/action";
 import { Project } from "../../types";
-import { use } from "react";
 import Footer from "@/app/components/footer";
 import "./styles.scss";
 import Header from "@/app/components/Header/Header";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, LoaderCircle } from "lucide-react";
 import { useParams } from "next/navigation";
 
 interface ProjectPageProps {
@@ -28,7 +27,7 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
         try {
           const data = await getOneProject(Number(id));
           setProject(data);
-        } catch  {
+        } catch {
           setError("Failed to fetch project");
         } finally {
           setLoading(false);
@@ -39,9 +38,14 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
     loadProject();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  if (!project) return <p>Project not found</p>;
+  if (loading)
+    return (
+      <p className="loading">
+        <LoaderCircle />
+      </p>
+    );
+  if (error) return <p className="loading">{error}</p>;
+  if (!project) return <p className="loading">Project not found</p>;
 
   return (
     <>
@@ -65,7 +69,7 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
 
           <p className="description_one_project">{project.objectifs}</p>
           <p className="technologies_one_project">
-          {project.technologies && Array.isArray(project.technologies) ? (
+            {project.technologies && Array.isArray(project.technologies) ? (
               project.technologies
                 .filter((tech) => typeof tech === "string")
                 .map((tech: string, index: number) => (

@@ -1,3 +1,28 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  color: #3bc2b9;
+  font-size: 35px;
+  svg {
+    animation: rotate 2s infinite;
+    width: 3em;
+    height: 3em;
+  }
+}
 .container-one-project {
   background-color: black;
   width: 100%;
