@@ -93,17 +93,17 @@
       0% {
         opacity: 0;
       }
-      50%{
+      50% {
         opacity: 1;
         color: var(--gray);
-            text-shadow: #3bc2b900 1px 0 10px;
+        text-shadow: #3bc2b900 1px 0 10px;
       }
       80% {
         opacity: 1;
         color: var(--blue);
-            text-shadow: #3bc2b99e 1px 0 20px;
+        text-shadow: #3bc2b99e 1px 0 20px;
       }
-      100%{
+      100% {
         opacity: 0;
       }
     }
@@ -123,7 +123,7 @@
     z-index: 1;
 
     @keyframes pulse2 {
-      from{
+      from {
         transform: translate(-50%, -50%) scale(0.1);
       }
       to {
@@ -137,12 +137,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    
+
     animation: pulse2 1.5s 0.1s ease-in-out forwards;
     z-index: 2;
 
     @keyframes pulse2 {
-      from{
+      from {
         transform: translate(-50%, -50%) scale(0.1);
       }
       to {
@@ -411,6 +411,37 @@
 .realisationButton:hover {
   background-color: #aaaaaa;
 }
+.team {
+  background-color: var(--soft-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .teamTitle {
+    background: linear-gradient(155deg, #e3e3e3, #5d5d5d9e);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    margin-top: 25px;
+  }
+  .allCardsTeam {
+    display: flex;
+    gap: 100px;
+    .cardTeam {
+      img {
+        border-radius: 100px !important;
+        object-fit: contain;
+      }
+      .teamContent {
+        color: white;
+        text-align: center;
+        margin: 25px 0;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
 
 @media (max-width: 1199px) {
   .container__card {
@@ -466,7 +497,25 @@
     }
   }
 }
-
+@media (max-width: 716px) {
+  .team {
+    .teamTitle {
+      font-size: 2.5rem;
+    }
+    .allCardsTeam {
+      gap: 50px;
+      .cardTeam {
+        img {
+          width: 100px !important;
+          height: 100px !important;
+        }
+        .teamContent {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
 @media (max-width: 691px) {
   .landingPage {
     .mainContent {
@@ -483,7 +532,7 @@
   }
 }
 
-@media (max-width: 467px) {
+@media (max-width: 480px) {
   .landingPage {
     .mainContent {
       .title {
@@ -508,8 +557,43 @@
       object-fit: cover;
     }
   }
+  .team {
+    .teamTitle {
+      font-size: 2rem;
+    }
+    .allCardsTeam {
+      gap: 25px;
+      .cardTeam {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .teamContent {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
-
+@media (max-width: 384px) {
+  .team {
+    .allCardsTeam {
+      flex-direction: column;
+      gap: 25px;
+      .cardTeam {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        img {
+          width: 200px !important;
+          height: 200px !important;
+        }
+        .teamContent {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
 @media (max-width: 358px) {
   .landingPage {
     .mainContent {
@@ -525,4 +609,3 @@
     }
   }
 }
-
