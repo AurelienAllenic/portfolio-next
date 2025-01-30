@@ -7,7 +7,10 @@
   }
 }
 
-.loading {
+.load {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -17,12 +20,33 @@
   background-color: black;
   color: #3bc2b9;
   font-size: 35px;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  z-index: 1000000;
   svg {
     animation: rotate 2s infinite;
     width: 3em;
     height: 3em;
   }
 }
+
+.load__active{
+  animation: load 1s ease-in-out forwards;
+
+
+@keyframes load {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    pointer-events: none;
+
+  }
+  
+}
+}
+
 .container-one-project {
   background-color: black;
   width: 100%;

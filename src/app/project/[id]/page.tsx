@@ -28,6 +28,7 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
         try {
           const data = await getOneProject(Number(id));
           setProject(data);
+          setLoading(true);
         } catch {
           setError("Failed to fetch project");
         } finally {
@@ -39,21 +40,18 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
     loadProject();
   }, [id]);
 
-  if (loading)
-    return (
-      <p className="loading">
-        <LoaderCircle />
-      </p>
-    );
   if (error) return <p className="loading">{error}</p>;
-  if (!project) return <p className="loading">Project not found</p>;
 
   return (
     <>
       <Header />
+      <div className={`load ${!loading ? "load__active" : ""}`}>
+        <LoaderCircle />
+      </div>
+
       <div className="container-one-project">
         <div
-          style={{ backgroundImage: `url(${project.image})` }}
+          style={{ backgroundImage: `url(${project?.image})` }}
           className="image-blur-one-project"
         ></div>
         <div className="gradient_back"></div>
@@ -63,20 +61,20 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
               <MoveLeft size={25} />
             </Link>
           </div>
-          <h1>{project.title}</h1>
-          <p className="category_one_project">{project.category}</p>
+          <h1>{project?.title}</h1>
+          <p className="category_one_project">{project?.category}</p>
           <Image
-            src={project.image}
-            alt={project.title ?? "Default Title"}
+            src={project?.image ?? "/default-image.jpg"}
+            alt={project?.title ?? "Default Title"}
             width={750}
             height={350}
             priority
           />
 
-          <p className="description_one_project">{project.objectifs}</p>
-          <p className="technologies_one_project">
-            {project.technologies && Array.isArray(project.technologies) ? (
-              project.technologies
+          <p className="description_one_project">{project?.objectifs}</p>
+          <div className="technologies_one_project">
+            {project?.technologies && Array.isArray(project?.technologies) ? (
+              project?.technologies
                 .filter((tech) => typeof tech === "string")
                 .map((tech: string, index: number) => (
                   <span key={index} className="technology-span">
@@ -84,11 +82,15 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
                   </span>
                 ))
             ) : (
-              <p>No technologies available</p>
+              <div>No technologies available</div>
             )}
-          </p>
-          <p className="description_one_project">{project.description}</p>
-          <a className="link_one_project" href={project.result} target="_blank">
+          </div>
+          <p className="description_one_project">{project?.description}</p>
+          <a
+            className="link_one_project"
+            href={project?.result}
+            target="_blank"
+          >
             <span>Visiter le site</span>
             <ArrowUpRight />
           </a>
