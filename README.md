@@ -10,7 +10,7 @@ Après avoir cloné le repository, assurez-vous d'être bien sur la branche main
 Ajoutez un fichier .env avec cette ligne :
 
 ```
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="votre_database_url"
 ```
 
 ```
