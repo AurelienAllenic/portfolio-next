@@ -1,3 +1,157 @@
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform-origin: top;
+  animation: end__loader 0.5s 3.5s cubic-bezier(0.75, 0.02, 0.34, 0.94) forwards;
+
+  @keyframes end__loader {
+    0% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(0);
+    }
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 500px;
+    background-color: var(--black);
+    transform: scale(0);
+    animation: pulse 0.9s infinite;
+    z-index: 1;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.1);
+      animation-timing-function: cubic-bezier(0.47, 0.01, 0, 0.99);
+    }
+    15% {
+      transform: translate(-50%, -50%) scale(1);
+      animation-timing-function: cubic-bezier(0.75, 0.02, 0.34, 0.94);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.1);
+    }
+  }
+
+  .circle__2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 500px;
+    background-color: var(--blue);
+    transform: scale(0);
+    animation: pulse 0.9s infinite 0.1s;
+    opacity: 1;
+    z-index: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.1);
+      animation-timing-function: cubic-bezier(0, 0.73, 0.46, 1);
+    }
+    30% {
+      transform: translate(-50%, -50%) scale(1);
+      animation-timing-function: cubic-bezier(0.75, 0.02, 0.34, 0.94);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.1);
+    }
+  }
+
+  .loader__title {
+    font-size: 3rem;
+    color: var(--gray);
+    z-index: 3;
+    opacity: 0;
+    animation: appear 2s 2s forwards;
+
+    @keyframes appear {
+      0% {
+        opacity: 0;
+      }
+      50%{
+        opacity: 1;
+        color: var(--gray);
+            text-shadow: #3bc2b900 1px 0 10px;
+      }
+      80% {
+        opacity: 1;
+        color: var(--blue);
+            text-shadow: #3bc2b99e 1px 0 20px;
+      }
+      100%{
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.loader.active {
+  transition: transform 0.3s ease-in-out;
+
+  .circle__2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--blue);
+    transform: translate(-50%, -50%) scale(1);
+    animation: pulse2 1.5s ease-in-out forwards;
+    z-index: 1;
+
+    @keyframes pulse2 {
+      from{
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+      to {
+        transform: translate(-50%, -50%) scale(10);
+      }
+    }
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    
+    animation: pulse2 1.5s 0.1s ease-in-out forwards;
+    z-index: 2;
+
+    @keyframes pulse2 {
+      from{
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+      to {
+        transform: translate(-50%, -50%) scale(20);
+      }
+    }
+  }
+}
+
 .landingPage {
   height: 80vh;
   display: flex;
@@ -371,3 +525,4 @@
     }
   }
 }
+

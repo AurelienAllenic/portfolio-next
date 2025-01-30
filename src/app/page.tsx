@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./page.module.scss";
 import {
   Pencil,
@@ -13,8 +15,24 @@ import Image from "next/image";
 import Footer from "./components/footer";
 
 function LandingPage() {
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsActive(true);
+    }, 1600);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div>
+      <div className={`${styles.loader} ${isActive ? styles.active : ""}`}>
+        <div className={styles.circle}></div>
+        <div className={styles.circle__2}></div>
+        <h1 className={styles.loader__title}>RenderFlow.</h1>
+      </div>
+
       <div className={styles.landingPage}>
         <Header />
         <main className={styles.mainContent}>
@@ -26,7 +44,7 @@ function LandingPage() {
             Nous créons des sites web modernes, performants et optimisés grâce
             aux technologies les plus avancées, comme les RSC.
           </p>
-          <a className={styles.projectsButton} href="/projects" >
+          <a className={styles.projectsButton} href="/projects">
             Accéder aux projets <ArrowUpRight size={20} />
           </a>
         </main>
@@ -35,18 +53,68 @@ function LandingPage() {
       <div className={styles.carousel}>
         <div className={styles.slider}>
           <div className={styles.carouselTrack}>
-            <Image src="./images/partners/airtable.svg" alt="Image 1" width={200} height={200} />
-            <Image src="./images/partners/canvas.svg" alt="Image 2" width={200} height={200} />
-            <Image src="./images/partners/soundcloud.svg" alt="Image 3" width={200} height={200} />
-            <Image src="./images/partners/stripe.svg" alt="Image 4" width={200} height={200} />
-            <Image src="./images/partners/trello.svg" alt="Image 5" width={200} height={200} />
+            <Image
+              src="./images/partners/airtable.svg"
+              alt="Image 1"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/canvas.svg"
+              alt="Image 2"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/soundcloud.svg"
+              alt="Image 3"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/stripe.svg"
+              alt="Image 4"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/trello.svg"
+              alt="Image 5"
+              width={200}
+              height={200}
+            />
           </div>
           <div className={styles.carouselTrack}>
-            <Image src="./images/partners/airtable.svg" alt="Image 1" width={200} height={200} />
-            <Image src="./images/partners/canvas.svg" alt="Image 2" width={200} height={200} />
-            <Image src="./images/partners/soundcloud.svg" alt="Image 3" width={200} height={200} />
-            <Image src="./images/partners/stripe.svg" alt="Image 4" width={200} height={200} />
-            <Image src="./images/partners/trello.svg" alt="Image 5" width={200} height={200} />
+            <Image
+              src="./images/partners/airtable.svg"
+              alt="Image 1"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/canvas.svg"
+              alt="Image 2"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/soundcloud.svg"
+              alt="Image 3"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/stripe.svg"
+              alt="Image 4"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="./images/partners/trello.svg"
+              alt="Image 5"
+              width={200}
+              height={200}
+            />
           </div>
         </div>
       </div>
