@@ -2,6 +2,10 @@
   background-color: black;
   width: 100%;
   min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
   .image-blur-one-project {
     object-fit: cover;
@@ -28,7 +32,7 @@
     min-height: 120vh;
     object-fit: cover;
     background-size: cover;
-    width: 100%;
+    width: 750px;
     z-index: 10;
     position: relative;
     display: flex;
@@ -37,13 +41,36 @@
     flex-direction: column;
 
     img {
+      width: 100% !important;
+      height: auto !important;
       border-radius: 5px;
       margin-bottom: 50px;
       margin-top: 25px;
     }
 
-    h1 {
+    .container__link{
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .icon__retour {
       margin: 8rem 0 0 0;
+      width: 50px;
+      height: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+
+      &:hover{
+        transform: translateX(-5px);
+      }
+
+      svg{
+        stroke: var(--white);
+      }
+    }
+
+    h1 {
       font-size: 4rem;
       background: linear-gradient(155deg, #e3e3e3, #5d5d5d9e);
       -webkit-background-clip: text;

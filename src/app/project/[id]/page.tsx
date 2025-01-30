@@ -8,8 +8,9 @@ import Footer from "@/app/components/footer";
 import "./styles.scss";
 import Header from "@/app/components/Header/Header";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MoveLeft } from "lucide-react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 interface ProjectPageProps {
   params: { id: string };
@@ -28,7 +29,7 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
         try {
           const data = await getOneProject(Number(id));
           setProject(data);
-        } catch  {
+        } catch {
           setError("Failed to fetch project");
         } finally {
           setLoading(false);
@@ -53,6 +54,11 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
         ></div>
         <div className="gradient_back"></div>
         <div className="project-detail">
+          <div className="container__link">
+            <Link href="/projects" className="icon__retour">
+              <MoveLeft size={25} />
+            </Link>
+          </div>
           <h1>{project.title}</h1>
           <p className="category_one_project">{project.category}</p>
           <Image
@@ -65,7 +71,7 @@ const ProjectDetail: FC<ProjectPageProps> = () => {
 
           <p className="description_one_project">{project.objectifs}</p>
           <p className="technologies_one_project">
-          {project.technologies && Array.isArray(project.technologies) ? (
+            {project.technologies && Array.isArray(project.technologies) ? (
               project.technologies
                 .filter((tech) => typeof tech === "string")
                 .map((tech: string, index: number) => (
