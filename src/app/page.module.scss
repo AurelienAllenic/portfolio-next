@@ -13,7 +13,7 @@
   align-items: center;
   overflow: hidden;
   transform-origin: top;
-  animation: end__loader 0.5s 3.5s cubic-bezier(0.75, 0.02, 0.34, 0.94) forwards;
+  animation: end__loader 0.5s 2.5s cubic-bezier(0.75, 0.02, 0.34, 0.94) forwards;
 
   @keyframes end__loader {
     0% {
@@ -87,7 +87,7 @@
     color: var(--gray);
     z-index: 3;
     opacity: 0;
-    animation: appear 2s 2s forwards;
+    animation: appear 2s 1s forwards;
 
     @keyframes appear {
       0% {

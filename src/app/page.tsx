@@ -20,7 +20,7 @@ function LandingPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsActive(true);
-    }, 1600);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, []);
