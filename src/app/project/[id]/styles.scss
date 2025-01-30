@@ -1,12 +1,12 @@
 .container-one-project {
   background-color: black;
   width: 100%;
-  min-height: 100vh;
+  min-height: 120vh;
 
   .image-blur-one-project {
     object-fit: cover;
     width: 100%;
-    min-height: 100vh;
+    min-height: 120vh;
     filter: blur(40px);
     position: absolute;
     top: 0;
@@ -17,7 +17,7 @@
   .gradient_back {
     background: linear-gradient(to bottom, transparent, #000, #000);
     width: 100%;
-    min-height: 100vh;
+    min-height: 120vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -25,7 +25,7 @@
   }
 
   .project-detail {
-    min-height: 100vh;
+    min-height: 120vh;
     object-fit: cover;
     background-size: cover;
     width: 100%;
@@ -173,6 +173,11 @@
     .project-detail {
       h1 {
         font-size: 1.75rem;
+      }
+      .technologies_one_project {
+        flex-wrap: wrap;
+        display: flex;
+        gap: 15px;
       }
     }
   }
