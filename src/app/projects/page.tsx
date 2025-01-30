@@ -23,17 +23,18 @@ const Projects: FC = () => {
         const data = await fetchProjects();
         if (!Array.isArray(data)) throw new Error("Invalid data format");
 
-        console.log("Fetched Projects:", data);
-
         const formattedData: Project[] = data.map((project) => ({
           id: project.id,
           image: project.image,
           title: project.title || `Projet ${project.id}`,
           description: project.description || "Pas de description disponible.",
-          category: typeof project.category === "string" ? project.category : "Autre",
+          category:
+            typeof project.category === "string" ? project.category : "Autre",
           objectifs: project.objectifs || "Aucun objectif spécifié.",
           technologies: Array.isArray(project.technologies)
-            ? project.technologies.filter((tech): tech is string => typeof tech === "string")
+            ? project.technologies.filter(
+                (tech): tech is string => typeof tech === "string"
+              )
             : [],
           result: project.result,
         }));
@@ -55,34 +56,37 @@ const Projects: FC = () => {
     let filtered = [...projects];
 
     if (selectedTechnology) {
-      filtered = filtered.filter((project) =>
-        Array.isArray(project.technologies) && project.technologies.includes(selectedTechnology)
+      filtered = filtered.filter(
+        (project) =>
+          Array.isArray(project.technologies) &&
+          project.technologies.includes(selectedTechnology)
       );
     }
-    
 
     if (selectedCategory) {
       filtered = filtered.filter(
-        (project) => project.category.toLowerCase() === selectedCategory.toLowerCase()
+        (project) =>
+          project.category.toLowerCase() === selectedCategory.toLowerCase()
       );
     }
 
     setFilteredProjects(filtered);
   }, [selectedTechnology, selectedCategory, projects]);
 
-  // if (loading) return <p>Chargement...</p>;
-  // if (error) return <p>{error}</p>;
-
   const allCategories = Array.from(
     new Set(
-      projects.map((project) => (typeof project.category === "string" ? project.category : "Autre"))
+      projects.map((project) =>
+        typeof project.category === "string" ? project.category : "Autre"
+      )
     )
   );
   const allTechnologies = Array.from(
     new Set(
       projects.flatMap((project) =>
         Array.isArray(project.technologies)
-          ? project.technologies.filter((tech): tech is string => typeof tech === "string")
+          ? project.technologies.filter(
+              (tech): tech is string => typeof tech === "string"
+            )
           : []
       )
     )

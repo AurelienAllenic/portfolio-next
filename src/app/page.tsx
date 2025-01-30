@@ -58,30 +58,35 @@ function LandingPage() {
               alt="Image 1"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/canvas.svg"
               alt="Image 2"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/soundcloud.svg"
               alt="Image 3"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/stripe.svg"
               alt="Image 4"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/trello.svg"
               alt="Image 5"
               width={200}
               height={200}
+              loading="lazy"
             />
           </div>
           <div className={styles.carouselTrack}>
@@ -90,30 +95,35 @@ function LandingPage() {
               alt="Image 1"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/canvas.svg"
               alt="Image 2"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/soundcloud.svg"
               alt="Image 3"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/stripe.svg"
               alt="Image 4"
               width={200}
               height={200}
+              loading="lazy"
             />
             <Image
               src="./images/partners/trello.svg"
               alt="Image 5"
               width={200}
               height={200}
+              loading="lazy"
             />
           </div>
         </div>
