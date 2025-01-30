@@ -2,7 +2,6 @@
   background-color: black;
   padding: 50px;
   min-height: 100vh;
-
   h1 {
     font-size: 4rem;
     background: linear-gradient(155deg, #e3e3e3, #5d5d5d9e);
@@ -11,7 +10,6 @@
     text-align: center;
     padding: 4rem 0;
   }
-
   .container__all__projects {
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +19,6 @@
     gap: 10px;
     width: 100%;
     padding: 50px 0;
-
     .card {
       position: relative;
       height: 230px;
@@ -34,7 +31,6 @@
       transition: all 0.3s ease-in-out;
       overflow: hidden;
       text-decoration: none;
-
       .hover {
         position: relative;
         z-index: 1;
@@ -49,7 +45,6 @@
         gap: 2rem;
         overflow: hidden;
         opacity: 0;
-
         .realisationButton {
           position: absolute;
           top: 50%;
@@ -65,14 +60,13 @@
           width: 60px;
           height: 60px;
           cursor: pointer;
-          transition: background-color 0.2s ease-in-out, transform .4s cubic-bezier(0, 2.19, 0.27, 0.36);
+          transition: background-color 0.2s ease-in-out,
+            transform 0.4s cubic-bezier(0, 2.19, 0.27, 0.36);
         }
-
         .realisationButton:hover {
           background-color: #aaaaaa;
           transform: translate(-50%, -50%) scale(1.1);
         }
-
         .project-title {
           font-weight: bold;
           text-align: center;
@@ -81,8 +75,6 @@
           font-size: 0.9rem;
           font-weight: 500;
         }
-
-
         &:hover {
           opacity: 1;
           background-color: rgba(0, 0, 0, 0.8);
@@ -104,15 +96,11 @@
     color: white;
     transition: all ease-in-out 0.3s;
     padding-right: 30px;
-    /* Espace pour l'icône */
     font-size: 1rem;
     padding-left: 10px;
     width: 200px;
-    /* Ajuste la largeur selon tes besoins */
     -webkit-appearance: none;
-    /* Pour les navigateurs basés sur WebKit (Chrome, Safari) */
     -moz-appearance: none;
-    /* Pour Firefox */
     appearance: none;
     border-bottom: 3px solid #3bc2b9;
     border-top: transparent;
@@ -163,4 +151,29 @@ option {
   transform: translateY(-50%);
   pointer-events: none;
   fill: white;
+}
+@media (max-width: 526px) {
+  .filters {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 496px) {
+  .container-page-all-projects h1 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 397px) {
+  .container-page-all-projects h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 347px) {
+  .container-page-all-projects h1 {
+    font-size: 2rem;
+  }
+  .filters select {
+    font-size: 0.8rem;
+  }
 }
