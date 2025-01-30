@@ -4,7 +4,7 @@
   min-height: 100vh;
   h1 {
     font-size: 4rem;
-    background: linear-gradient(65deg, rgb(255, 255, 255), transparent);
+    background: linear-gradient(155deg, #e3e3e3, #5d5d5d9e);
     -webkit-background-clip: text;
     color: transparent;
     text-align: center;
@@ -83,10 +83,12 @@
     }
   }
 }
+
 .filters {
   display: flex;
   gap: 2rem;
   padding: 25px 0 5px 0;
+
   select {
     padding: 10px 25px;
     background: transparent;
@@ -104,30 +106,36 @@
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
+
     &:hover,
     &:focus {
       transform: scale(1.04);
       outline: none;
       transition: all ease-in-out 0.3s;
     }
+
     option {
       color: black;
     }
   }
 }
+
 option {
   background-color: black;
   color: #3bc2b9 !important;
   font-weight: 700;
   font-size: 17px;
+
   &:hover,
   &:focus {
     background-color: black !important;
   }
+
   &:last-child {
     border-radius: 0 0 10px 10px;
   }
 }
+
 .custom-select {
   position: relative;
   display: inline-block;
@@ -144,7 +152,6 @@ option {
   pointer-events: none;
   fill: white;
 }
-
 @media (max-width: 526px) {
   .filters {
     flex-direction: column;

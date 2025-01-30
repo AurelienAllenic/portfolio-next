@@ -2,6 +2,7 @@
   background-color: black;
   width: 100%;
   min-height: 100vh;
+
   .image-blur-one-project {
     object-fit: cover;
     width: 100%;
@@ -12,6 +13,7 @@
     left: 0;
     z-index: 1;
   }
+
   .gradient_back {
     background: linear-gradient(to bottom, transparent, #000, #000);
     width: 100%;
@@ -21,6 +23,7 @@
     left: 0;
     z-index: 2;
   }
+
   .project-detail {
     min-height: 100vh;
     object-fit: cover;
@@ -32,29 +35,29 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     img {
       border-radius: 5px;
       margin-bottom: 50px;
       margin-top: 25px;
     }
+
     h1 {
       margin: 8rem 0 0 0;
       font-size: 4rem;
-      background: linear-gradient(
-        95deg,
-        rgb(255, 255, 255),
-        rgba(214, 214, 214, 0.313)
-      );
+      background: linear-gradient(155deg, #e3e3e3, #5d5d5d9e);
       -webkit-background-clip: text;
       color: transparent;
       text-align: center;
     }
+
     .description_one_project {
       font-size: 20px;
       color: white;
       margin-bottom: 25px;
       text-align: center;
     }
+
     .technologies_one_project {
       color: white;
       display: flex;
@@ -62,6 +65,7 @@
       align-items: center;
       flex-direction: row;
       margin-bottom: 25px;
+
       .technology-span {
         border-radius: 100px;
         background-color: #393737;
@@ -71,11 +75,13 @@
         font-size: 17px;
       }
     }
+
     .category_one_project {
       margin-top: 10px;
       color: white;
       font-size: 20px;
     }
+
     .link_one_project {
       display: flex;
       justify-content: center;
@@ -89,6 +95,7 @@
       margin-top: 35px;
       font-size: 15px;
       transition: all ease-in-out 0.3s;
+
       &:hover {
         transform: scale(1.05);
         transition: all ease-in-out 0.3s;
@@ -147,11 +154,13 @@
       .description_one_project {
         font-size: 17px;
       }
+
       .technologies_one_project {
         .technology-span {
           font-size: 15px;
         }
       }
+
       .category_one_project {
         font-size: 17px;
       }
@@ -176,17 +185,21 @@
         width: 350px;
         height: 200px;
       }
+
       h1 {
         font-size: 2.5rem;
       }
+
       .description_one_project {
         font-size: 16px;
       }
+
       .technologies_one_project {
         .technology-span {
           font-size: 14px;
         }
       }
+
       .category_one_project {
         font-size: 16px;
       }
