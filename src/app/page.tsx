@@ -174,6 +174,39 @@ function LandingPage() {
         </div>
       </div>
 
+      <div className={styles.team}>
+        <p className={styles.teamTitle}>Notre équipe</p>
+        <div className={styles.allCardsTeam}>
+          <div className={styles.cardTeam}>
+            <Image
+              src="/images/team/aurelien.jpeg"
+              alt=""
+              width={150}
+              height={150}
+            ></Image>
+            <p className={styles.teamContent}>Aurélien Allenic</p>
+          </div>
+          <div className={styles.cardTeam}>
+            <Image
+              src="/images/team/enzo.jpeg"
+              alt=""
+              width={150}
+              height={150}
+            ></Image>
+            <p className={styles.teamContent}>Enzo Cosson</p>
+          </div>
+          <div className={styles.cardTeam}>
+            <Image
+              src="/images/team/marwane.jpeg"
+              alt=""
+              width={150}
+              height={150}
+            ></Image>
+            <p className={styles.teamContent}>Marwane Ghalila</p>
+          </div>
+        </div>
+      </div>
+
       <div className={styles.realisation}>
         <div className={styles.realisationCard}>
           <div className={styles.top__card}>
